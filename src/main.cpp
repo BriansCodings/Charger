@@ -1,3 +1,26 @@
+/**
+ * ! DO NOT USE THIS CODE WITHOUT UNDERSTANDING THE CIRCUIT AND SAFETY IMPLICATIONS !
+ * ! THERE IS NO HARDWARE LEVELOVERVOLTAGE OR CURRENT PROTECTION IN THIS CODE. USE AT YOUR OWN RISK. !
+ * TODO: ADD HARDWARE LEVEL OVERVOLTAGE PROTECTION
+ * TODO: ADD CURRENT SENSING AND HARDWARE LEVEL OVERCURRENT PROTECTION
+ * TODO: ADD TEMPERATURE SENSING AND OVERHEAT 
+ * TODO: ADD A SCREEN FOR REAL-TIME STATUS DISPLAY AND CONFIGURATION
+ * TODO: Make voltage thresholds, rest times and other charging parameters user-configurable (store in NVS/EEPROM and expose via serial/UI) instead of hardcoding
+ * TODO: Add support for more cells in series by adding more relays and voltage sensing channels, and updating the logic accordingly.
+
+  Simple battery charger for 2 cells in series using 2 relays and voltage sensing.
+  Only one relay can be closed at a time to prevent shorting the battery.
+  Each cell is charged until it reaches 4.2V, then the relay opens and rests for 5 seconds.
+  If the voltage drops below 4.15V after rest, charging resumes.
+  
+  Relays are active-low (energized = open circuit) to fail safe in case of power loss.
+
+ */
+
+
+
+  
+
 #include <Arduino.h> // Include the Arduino core library for basic functions
 #include <esp_adc_cal.h> // Include ESP ADC calibration library for accurate ADC readings
 
